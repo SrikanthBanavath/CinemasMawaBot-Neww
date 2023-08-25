@@ -85,7 +85,6 @@ async def start_services():
     print('----------------------- Service Started -----------------------------------------------------------------')
     print('                        bot =>> {}'.format((await LazyPrincessBot.get_me()).first_name))
     print('                        server ip =>> {}:{}'.format(bind_address, PORT))
-    print('                        Owner =>> {}'.format((OWNER_USERNAME)))
     if ON_HEROKU:
         print('                        app runnng on =>> {}'.format(FQDN))
     print('---------------------------------------------------------------------------------------------------------')
