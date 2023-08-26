@@ -79,8 +79,12 @@
         </div>
     </header>
 	
-    <div class="container">
-        <tag src="%s" class="player"></tag>
+    <div class="playercontainerbox"> 
+        <div id="player-container">
+            <video id="player" playsinline controls>
+                <source src={{file_url}} type="video/mp4">
+            </video>
+        </div>
     </div>
 
 <div class="containerbox"> 
