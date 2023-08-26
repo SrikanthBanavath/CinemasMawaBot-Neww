@@ -188,9 +188,9 @@ async def next_page(bot, query):
         # else:
         #     # create a new entry for the user in the download counts dictionary
         #     download_counts[query.from_user.id] = {'date': current_date, 'count': 1}d
-    if settings['button']:
+    if settings["button"]:
             if URL_MODE is True:
-                if query.from_user.id in ADMINS:
+                if message.from_user.id in ADMINS:
                     btn = [
                         [
                             InlineKeyboardButton(
@@ -199,75 +199,38 @@ async def next_page(bot, query):
                         ]
                         for file in files
                     ]
-                elif query.from_user.id in MY_USERS:
+                elif message.from_user.id in LZURL_PRIME_USERS:
                     btn = [
                         [
                             InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif query.from_user.id in LZURL_PRIME_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                             ),
                         ]
                         for file in files
                         ]
-                elif query.message.chat.id is not None and query.message.chat.id in LAZY_GROUPS:
-                    btn = [
-                    [
-                        InlineKeyboardButton(
-                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                        ),
-                    ]
-                    for file in files
-                    ]
                 else:
                     btn = [
                         [
                             InlineKeyboardButton(
                                 text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                                url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")
                             ),
                         ]
                         for file in files
                     ]
-            else:
-                if query.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
+            else    :
+                btn = [
+                    [
+                        InlineKeyboardButton(
+                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                        ),
                     ]
-                elif query.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                else:    
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
+                    for file in files
+                ]
 
     else:
         if URL_MODE is True:
-            if query.from_user.id in ADMINS:
+            if message.from_user.id in ADMINS:
                 btn = [
                     [
                         InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
@@ -275,48 +238,24 @@ async def next_page(bot, query):
                     ]
                     for file in files
                 ]
-            elif query.from_user.id in MY_USERS:
+            elif message.from_user.id in LZURL_PRIME_USERS:
                 btn = [
                     [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.from_user.id in LZURL_PRIME_USERS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.message.chat.id is not None and query.message.chat.id in LAZY_GROUPS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
+                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
                     ]
                     for file in files
                 ]
             else:
                 btn = [
                     [
-                        InlineKeyboardButton(text=f"{file.file_name}",url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
-                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
+                        InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")),
+                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")),
                     ]
                     for file in files
                 ]
         else:
-            if query.form_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif query.form_user.id in MY_USERS:
+            if message.from_user.id in ADMINS:
                 btn = [
                     [
                         InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
@@ -327,8 +266,8 @@ async def next_page(bot, query):
             else:
                 btn = [
                     [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
+                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
                     ]
                     for file in files
                 ]
@@ -1331,15 +1270,6 @@ async def auto_filter(client, msg, spoll=False):
                         ]
                         for file in files
                     ]
-                elif message.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
                 elif message.from_user.id in LZURL_PRIME_USERS:
                     btn = [
                         [
@@ -1349,65 +1279,29 @@ async def auto_filter(client, msg, spoll=False):
                         ]
                         for file in files
                         ]
-                elif message.chat.id is not None and message.chat.id in LAZY_GROUPS:
+                else:
                     btn = [
+                        [
+                            InlineKeyboardButton(
+                                text=f"[{get_size(file.file_size)}] {file.file_name}", 
+                                url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")
+                            ),
+                        ]
+                        for file in files
+                    ]
+            else    :
+                btn = [
                     [
                         InlineKeyboardButton(
                             text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                         ),
                     ]
                     for file in files
-                    ]
-                else:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
-                            ),
-                        ]
-                        for file in files
-                    ]
-            else:
-                if message.from_user.id in ADMINS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                elif message.from_user.id in MY_USERS:
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
-                else:    
-                    btn = [
-                        [
-                            InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                            ),
-                        ]
-                        for file in files
-                    ]
+                ]
 
     else:
         if URL_MODE is True:
             if message.from_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif message.from_user.id in MY_USERS:
                 btn = [
                     [
                         InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
@@ -1423,32 +1317,16 @@ async def auto_filter(client, msg, spoll=False):
                     ]
                     for file in files
                 ]
-            elif message.chat.id is not None and message.chat.id in LAZY_GROUPS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'{pre}#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'{pre}#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
             else:
                 btn = [
                     [
-                        InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
-                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
+                        InlineKeyboardButton(text=f"{file.file_name}", url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")),
+                        InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.dog/{temp.U_NAME}?start=files_{file.file_id}")),
                     ]
                     for file in files
                 ]
         else:
-            if message.form_user.id in ADMINS:
-                btn = [
-                    [
-                        InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                        InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
-                    ]
-                    for file in files
-                ]
-            elif message.form_user.id in MY_USERS:
+            if message.from_user.id in ADMINS:
                 btn = [
                     [
                         InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
