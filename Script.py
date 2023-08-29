@@ -1,8 +1,8 @@
 class script(object):
 
-    START_TXT = """<b>✨ Hᴇʟʟᴏ {user}.
+    START_TXT = """<b>✨ Hᴇʟʟᴏ {}.
 
-Mʏ Nᴀᴍᴇ Is {bot}.
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/GMSearchBot>𝗚𝗠 𝗦𝗘𝗔𝗥𝗖𝗛 𝗕𝗢𝗧</a>.
 
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
     
