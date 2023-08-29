@@ -698,10 +698,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.B_LINK),
+            text=script.START_TXT.format(user=query.from_user.mention, bot=client.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
         await query.answer('♥️ Thank You LazyDeveloper ♥️')
     elif query.data == "help":
         buttons = [[
