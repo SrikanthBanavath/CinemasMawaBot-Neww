@@ -1471,6 +1471,9 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
 
+	search = message.text
+	waiting_message = await message.reply_text(f"Searching For {search}")
+
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     # waiting overs here @LazyDeveloperr
