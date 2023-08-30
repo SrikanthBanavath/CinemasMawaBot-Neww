@@ -226,7 +226,7 @@ YOUR ADS
     -->
     <div class="playercontainerbox"> 
         <h4>{{file_name}}</h4>
-        <div style="margin-bottom: 20px; margin-top:20px"></div>
+        <div style="margin-bottom: 20px; margin-top:15px"></div>
         <!--Video Player Start-->
 
         <div id="player-container">
@@ -236,12 +236,6 @@ YOUR ADS
         </div>
     </div>
     <div class="containerbox"> 
-        <div id="info-box">
-           <p style="font-size: 16px; color:#7b89a3;">File Details :</p>
-           <p style="font-size: 13px; color:#7b89a3;">Name : {{file_name}}</p>
-           <p style="font-size: 13px; color:#7b89a3;">Size : {{file_size}}</p>
-           <p style="font-size: 13px; color:#7b89a3;">Shared by : ******* (Privacy Enabled)</p>
-        </div>
         <div style="margin-bottom: 5px; margin-top: 10px">Stream Options :</div>
         <div id="button-container1">
             <button id="vlc-btn" onclick="playOnline()">
@@ -259,23 +253,11 @@ YOUR ADS
             </button>
         </div>
         <div style="margin-bottom: 5px; margin-top: 10px">Download Options :</div>
-        <div id="button-container2">
-            <button id="tgfile-btn" onclick="openModalTG()">
-                <i class="fab fa-telegram"></i> Get as Telegram File
-            </button>
-        </div>
-        <div id="button-container2">
-            <button id="dl-btn" onclick="openModal()">
-                <i class="fas fa-download"></i> Download Now
-            </button>
-        </div>
-        <div id="button-container2">
-            <button class="block" id="tg-btn" onclick="openTgBot()">
-                <i class="fab fa-telegram"></i> Create Link Like This
-            </button>
+        
+        <div onclick="lazyDownload()" class="col-lg-4 p-2 col-12 rounded-3xl bg-dark text-white text-center align-items-center hover:bg-gradient-to-r from-pink-500 to-violet-500 hover:shadow-md hover:shadow-gray-100 hover:translate-y-[-5px] transition transition-all duration-300 wow animate__animated animate__rubberBand">
+                                Download Now
+                            </div>
             
-            
-        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.js"></script>
         <script>
             const player = new Plyr('#player', {
@@ -377,6 +359,11 @@ YOUR ADS
             }
         }, 1000);
     }
+
+    function lazyDownload() {
+            const openLazyLink = lazyLink;
+            window.location.href = openLazyLink;
+        }
 
     function download() {
         const finalLinkUrl = finalUrl;
