@@ -632,7 +632,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 # Create the inline keyboard button with callback_data
                 #button = InlineKeyboardButton('🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲 / 𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', callback_data=f'generate_stream_link:{file_id}')
-		button = InlineKeyboardMarkup([[InlineKeyboardButton("🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲", url=lazy_stream),  # we download Link
+                button = InlineKeyboardMarkup([[InlineKeyboardButton("🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲", url=lazy_stream),  # we download Link
                                                     InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', url=lazy_download)]])
                 # Create the inline keyboard markup with the button
                 keyboard = InlineKeyboardMarkup([[button]])
@@ -675,7 +675,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
         # Create the inline keyboard button with callback_data
         #button = InlineKeyboardButton('🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲 / 𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', callback_data=f'generate_stream_link:{file_id}')
-	button = InlineKeyboardMarkup([[InlineKeyboardButton("🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲", url=lazy_stream),  # we download Link
+        button = InlineKeyboardMarkup([[InlineKeyboardButton("🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲", url=lazy_stream),  # we download Link
                                                     InlineKeyboardButton('𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', url=lazy_download)]]) # web stream Link
             
         # Create the inline keyboard markup with the button
