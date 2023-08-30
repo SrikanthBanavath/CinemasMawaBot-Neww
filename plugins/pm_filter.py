@@ -1472,7 +1472,9 @@ async def auto_filter(client, msg, spoll=False):
         )
 
         search = message.text
-        waiting_message = await message.reply_text(f"Searching For {search}")
+        waiting_message = await message.reply_text(f"<b>Searching For </b>🔍 <code>{search}</code>")
+        await asyncio.sleep(1)
+        await waiting_message.delete()
 
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
