@@ -254,9 +254,11 @@ YOUR ADS
         </div>
         <div style="margin-bottom: 5px; margin-top: 10px">Download Options :</div>
         
-        <div onclick="lazyDownload()" class="col-lg-4 p-2 col-12 rounded-3xl bg-dark text-white text-center align-items-center hover:bg-gradient-to-r from-pink-500 to-violet-500 hover:shadow-md hover:shadow-gray-100 hover:translate-y-[-5px] transition transition-all duration-300 wow animate__animated animate__rubberBand">
-                                Download Now
-                            </div>
+        <div id="button-container2">
+            <button id="dl-btn" onclick="download()">
+                <i class="fas fa-download"></i> Download Now
+            </button>
+        </div>
             
         <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.js"></script>
         <script>
@@ -360,10 +362,7 @@ YOUR ADS
         }, 1000);
     }
 
-    function lazyDownload() {
-            const openLazyLink = lazyLink;
-            window.location.href = openLazyLink;
-        }
+    
 
     function download() {
         const finalLinkUrl = finalUrl;
