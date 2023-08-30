@@ -2,7 +2,7 @@ class script(object):
 
     START_TXT = """<b>✨ Hᴇʟʟᴏ {}.
 
-Mʏ Nᴀᴍᴇ Is <a href=https://t.me/CinemasMawaBot>𝗖𝗶𝗻𝗲𝗺𝗮𝘀𝗠𝗮𝘄𝗮𝗕𝗼𝘁</a>.
+Mʏ Nᴀᴍᴇ Is <a href=https://t.me/CinemasMawaBot>CɪɴᴇᴍᴀsMᴀᴡᴀBᴏᴛ</a>.
 
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
     
