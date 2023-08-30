@@ -1471,10 +1471,10 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
 
-        search = message.text
-        waiting_message = await message.reply_text(f"<b>Searching For </b>🔍 <code>{search}</code>")
-        await asyncio.sleep(1)
-        await waiting_message.delete()
+    search = message.text
+    waiting_message = await message.reply_text(f"<b>Searching For </b>🔍 <code>{search}</code>")
+    await asyncio.sleep(1)
+    await waiting_message.delete()
 
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
