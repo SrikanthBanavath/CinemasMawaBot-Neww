@@ -1471,16 +1471,8 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
 
-    #waiting user to complete imdb process @LazyDeveloperr
-    user = message.from_user
-    full_name = user.first_name + " " + user.last_name if user.last_name else user.first_name
-    waiting_message = await message.reply_text(f"<b>Searching for</b>")
-    await asyncio.sleep(1)
-    await waiting_message.delete()
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
-    await serve_message.delete()
-    await fetching_message.delete()
     # waiting overs here @LazyDeveloperr
 
     if imdb:
