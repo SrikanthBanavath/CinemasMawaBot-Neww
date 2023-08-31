@@ -237,7 +237,7 @@ async def next_page(bot, query):
                         [
                             InlineKeyboardButton(
                                 text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
                             ),
                         ]
                         for file in files
@@ -314,7 +314,7 @@ async def next_page(bot, query):
                         [
                             InlineKeyboardButton(
                                 text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
                             ),
                         ]
                         for file in files
@@ -613,10 +613,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                 return
             elif settings['botpm']:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                 return
             else:
                 # Create the inline keyboard button with callback_data
@@ -634,9 +634,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('Unblock The Bot Baby!', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("𝙸 𝙻𝚒𝚔𝚎 𝚈𝚘𝚞𝚛 𝚂𝚖𝚊𝚛𝚝𝚗𝚎𝚜𝚜, 𝙱𝚞𝚝 𝙳𝚘𝚗'𝚝 𝙱𝚎 𝙾𝚟𝚎𝚛𝚜𝚖𝚊𝚛𝚝 𝙾𝚔𝚊𝚢 😉", show_alert=True)
@@ -676,7 +676,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=true")
             ],[
             InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
             InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/+n8l5UcES7IE3MmU1")
@@ -1346,7 +1346,7 @@ async def auto_filter(client, msg, spoll=False):
                         [
                             InlineKeyboardButton(
                                 text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
                             ),
                         ]
                         for file in files
@@ -1423,7 +1423,7 @@ async def auto_filter(client, msg, spoll=False):
                         [
                             InlineKeyboardButton(
                                 text=f"[{get_size(file.file_size)}] {file.file_name}", 
-                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                                url=await get_shortlink(f"https://telegram.me/{BOT_USERNAME}?start=files_{file.file_id}")
                             ),
                         ]
                         for file in files
