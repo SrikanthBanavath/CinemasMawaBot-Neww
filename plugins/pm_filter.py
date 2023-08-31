@@ -1591,11 +1591,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
-    spell_check_del = await msg.reply_text(
-        text=("Cant Find it Bro.. Check Your spelling")),
-        reply_markup=InlineKeyboardMarkup(btn),
-        reply_to_message_id=msg.id
-
+    spell_check_del = await msg.reply_text(text=("Cant Find it Bro.. Check Your spelling"),reply_markup=InlineKeyboardMarkup(btn),reply_to_message_id=msg.id )
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
