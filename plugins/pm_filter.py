@@ -392,10 +392,8 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer("You are clicking on an old button which is expired.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('Checking for Movie in database...')
-    k = await manual_filters(bot, query.message, text=movie)
-    if k == False:
-        files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
+    await query.answer('𝖧𝖮𝖫 𝗎𝗉 𝗅𝖾𝗆𝗆𝖾 𝖼𝗁𝖾𝖼𝗄...')
+    files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
     if files:
         k = (movie, files, offset, total_results)
         await auto_filter(bot, query, k)
@@ -1268,7 +1266,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
-        settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
@@ -1553,8 +1550,8 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(10)
+        k = await msg.reply("𝖨 𝗍𝗋𝗂𝖾𝖽.. 𝖺 𝗆𝗈𝗏𝗂𝖾 𝗂𝗇 𝗍𝗁𝖺𝗍 𝗇𝖺𝗆𝖾 𝖨 𝖼𝖺𝗇𝗍 𝖿𝗂𝗇𝖽 𝗂𝗍.")
+        await asyncio.sleep(8)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -1583,13 +1580,13 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
         k = await msg.reply("𝖨'𝗆 𝗀𝗈𝗇𝗇𝖺 𝗍𝖺𝗄𝖾 𝗒𝗈𝗎 𝖻𝖺𝖼𝗄 𝗍𝗈 𝗄𝗂𝗇𝖽𝖾𝗋𝗀𝖺𝗋𝗍𝖾𝗇 𝗍𝗈 𝗅𝖾𝖺𝗋𝗇 𝖠𝖡𝖢 𝖢𝖧𝖤𝖢𝖪 𝖴𝖱 𝖲𝖯𝖤𝖫𝖫𝖨𝖭𝖦!!")
-        await asyncio.sleep(10)
+        await asyncio.sleep(8)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
     btn = [[InlineKeyboardButton(text=movie.strip(), callback_data=f"spolling#{user}#{k}")] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    l = await msg.reply("𝙲𝚊𝚗'𝚝 𝙵𝚒𝚗𝚍 𝙸𝚝 𝙱𝚛𝚊𝚟. 𝙳𝚘 𝚈𝚘𝚞 𝙼𝚎𝚊𝚗 𝙰𝚗𝚢 𝙾𝚏 𝚃𝚑𝚎𝚜𝚎?", reply_markup=InlineKeyboardMarkup(btn))
+    l = await msg.reply("𝙲𝚊𝚗'𝚝 𝙵𝚒𝚗𝚍 𝙸𝚝 𝙱𝚛𝚊𝚟. 𝙳𝚘 𝚈𝚘𝚞 𝙼𝚎𝚊𝚗 𝙰𝚗𝚢 𝙾𝚏 𝚃𝚑𝚎𝚜𝚎?", reply_markup=InlineKeyboardMarkup(btn), reply_to_message_id=msg.id)
     await asyncio.sleep(300)
     await l.delete()
 
