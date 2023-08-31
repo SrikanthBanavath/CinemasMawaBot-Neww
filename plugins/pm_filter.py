@@ -620,7 +620,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return
             else:
                 # Create the inline keyboard button with callback_data
-                button = InlineKeyboardButton('🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲 / 𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', callback_data=f'generate_stream_link:{file_id}')
+                button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
                 # Create the inline keyboard markup with the button
                 keyboard = InlineKeyboardMarkup([[button]])
                 sp=await client.send_cached_media(
@@ -661,7 +661,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{title}"
         await query.answer()
         # Create the inline keyboard button with callback_data
-        button = InlineKeyboardButton('🖥𝗪𝗮𝘁𝗰𝗵 𝗢𝗻𝗹𝗶𝗻𝗲 / 𝗙𝗮𝘀𝘁 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱⚡️', callback_data=f'generate_stream_link:{file_id}')
+        button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
             
         # Create the inline keyboard markup with the button
         keyboard = InlineKeyboardMarkup([[button]])
