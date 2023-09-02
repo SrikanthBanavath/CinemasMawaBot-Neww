@@ -21,16 +21,11 @@
         </div>
     </header>
 
-    <div class="container">
-        <a href=?hash={get_hash(log_msg)>
-            <button class="cybr-btn">
-                Download
-                <span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">_404 Error</span>
-                <span aria-hidden class="cybr-btn__tag">_%s</span>
+    <div id="button-container2">
+            <button id="dl-btn" onclick="download()">
+                <i class="fas fa-download"></i> Download Now
             </button>
-        </a>
-    </div>
+        </div>
     
     <footer>
 	    <align="left"><a href="tg://resolve?domain=filetolinkbot" style="color:blue" >Make your own Link &emsp; &emsp;</a></align>
@@ -77,5 +72,12 @@
             title.classList.toggle('dark')
         }
     </script>
+
+<script>
+	function download() {
+        const finalLinkUrl = finalUrl;
+        window.location.href = finalLinkUrl;
+    }
+</script>
 </body>
 </html>
