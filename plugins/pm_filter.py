@@ -118,7 +118,7 @@ async def doc(bot, update):
         img = Image.open(ph_path)
         img.resize((320, 320))
         img.save(ph_path, "JPEG")
-    await ms.edit("三 𝘗𝘳𝘦𝘱𝘢𝘳𝘪𝘯𝘨 𝘵𝘰 𝘳𝘦𝘤𝘦𝘪𝘷𝘦 𝘓𝘢𝘻𝘺 𝘧𝘪𝘭𝘦...︻デ═一")
+    await ms.edit("Receiving File...")
     c_time = time.time() 
     try:
        if type == "document":
@@ -459,7 +459,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except:
                     pass
             else:
-                await query.answer("That's not for you sona!", show_alert=True)
+                await query.answer("That's not for you Dear!", show_alert=True)
     elif "groupcb" in query.data:
         await query.answer()
 
@@ -679,10 +679,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=true")
+            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ➕", url=f"http://t.me/{BOT_USERNAME}?startgroup=true")
             ],[
             InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
-            InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/+n8l5UcES7IE3MmU1")
+            InlineKeyboardButton("Uᴘᴅᴀᴛᴇs 🔈", url="https://t.me/+n8l5UcES7IE3MmU1")
             ],[      
             InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
             InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
@@ -984,7 +984,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "coct":
         buttons = [[
-            InlineKeyboardButton('🚪 BACK', callback_data='help')
+            InlineKeyboardButton('🚪 Bᴀᴄᴋ', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -994,8 +994,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "extra":
         buttons = [[
-            InlineKeyboardButton('🚪 BACK', callback_data='help'),
-            InlineKeyboardButton('👑 ADMIN', callback_data='admin')
+            InlineKeyboardButton('🚪 Bᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('👑 Aᴅᴍɪɴ', callback_data='admin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1005,7 +1005,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "admin":
         buttons = [[
-            InlineKeyboardButton('🚪 BACK', callback_data='extra')
+            InlineKeyboardButton('🚪 Bᴀᴄᴋ', callback_data='extra')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1015,8 +1015,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('🚪 BACK', callback_data='help'),
-            InlineKeyboardButton('♻️ REFRESH', callback_data='rfrsh')
+            InlineKeyboardButton('🚪 Bᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('♻️ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -1069,7 +1069,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     #     )
     elif query.data == "donatelazydev":
         buttons = [
-            [ InlineKeyboardButton("⨳   Close   ⨳", callback_data="close_data") ]
+            [ InlineKeyboardButton("Cʟᴏsᴇ", callback_data="close_data") ]
             ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1161,8 +1161,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 BACK', callback_data='help'),
-            InlineKeyboardButton('♻️ REFRESH', callback_data='rfrsh')
+            InlineKeyboardButton('👩‍🦯 Bᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('♻️ Rᴇғʀᴇsʜ', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -1285,9 +1285,8 @@ async def auto_filter(client, msg, spoll=False):
                                                                                                                                         [InlineKeyboardButton(text=f"🤞REQUEST RECEIVED", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
                                                                                                                                         [InlineKeyboardButton(text=f"✅UPLOAD DONE", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
                                                                                                                                         [InlineKeyboardButton(text=f"⚡INVALID", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊SPELL ERROR", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton(text=f"😒NO OTT", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}")],
-                                                                                                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
-                                                                                                                                        ]))
+                                                                                                                                        [InlineKeyboardButton(text=f"😒NO OTT", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}"),[InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]
+                                                                                                                                        ]]))
                 return await advantage_spell_chok(client, msg)
 
         else: 
@@ -1507,7 +1506,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"⚡Baby, Here is what i found for your query {search}"
+        cap = f"<b>⚡Baby, Here is what i found for your query</b> <code>'{search}'</code>"
     if imdb and imdb.get('poster'):
         try:
             z = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
