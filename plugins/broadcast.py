@@ -40,3 +40,30 @@ async def verupikkals(bot, message):
             await sts.edit(f"Broadcast is in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
     await sts.edit(f"Lazy Broadcast is Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
+
+@Client.on_message(filters.command("clear_junk") & filters.user(ADMINS))
+async def remove_junkuser__db(bot, message):
+    users = await db.get_all_users()
+    b_msg = message 
+    sts = await message.reply_text('in progress.......')   
+    start_time = time.time()
+    total_users = await db.total_users_count()
+    blocked = 0
+    deleted = 0
+    failed = 0
+    done = 0
+    async for user in users:
+        pti, sh = await clear_junk(int(user['id']), b_msg)
+        if pti == False:
+            if sh == "Blocked":
+                blocked+=1
+            elif sh == "Deleted":
+                deleted += 1
+            elif sh == "Error":
+                failed += 1
+        done += 1
+        if not done % 20:
+            await sts.edit(f"in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nBlocked: {blocked}\nDeleted: {deleted}")    
+    time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
+    await sts.delete()
+    await bot.send_message(message.chat.id, f"Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nBlocked: {blocked}\nDeleted: {deleted}")
