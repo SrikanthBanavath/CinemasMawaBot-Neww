@@ -1589,7 +1589,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
-    spell_check_del = await msg.reply_text(text=("<b>𝙲𝚊𝚗'𝚝 𝙵𝚒𝚗𝚍 𝙸𝚝 𝙱𝚊𝚋𝚢. 𝙳𝚘 𝚈𝚘𝚞 𝙼𝚎𝚊𝚗 𝙰𝚗𝚢 𝙾𝚏 𝚃𝚑𝚎𝚜𝚎?</b>"),reply_markup=InlineKeyboardMarkup(btn),reply_to_message_id=msg.id )
+    spell_check_del = await msg.reply_text(text=("𝙲𝚊𝚗'𝚝 𝙵𝚒𝚗𝚍 𝙸𝚝 𝙱𝚊𝚋𝚢. 𝙳𝚘 𝚈𝚘𝚞 𝙼𝚎𝚊𝚗 𝙰𝚗𝚢 𝙾𝚏 𝚃𝚑𝚎𝚜𝚎?"),reply_markup=InlineKeyboardMarkup(btn),reply_to_message_id=msg.id )
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
