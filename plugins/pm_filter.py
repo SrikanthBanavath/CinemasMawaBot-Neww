@@ -1281,7 +1281,7 @@ async def auto_filter(client, msg, spoll=False):
             user_id = message.from_user.id
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
-                await client.send_message(req_channel,f"-🦋 **REQUESTED CONTENT** 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
+                await client.send_message(req_channel,f"🦋 **REQUESTED CONTENT** 🦋-\n\n**Content Name** :`{search}`\n**Requested By**: {message.from_user.mention}\n **USER ID**:{user_id}\n\n🗃️",
                                                                                                        reply_markup=InlineKeyboardMarkup([
                                                                                                                                         [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
                                                                                                                                         [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{user_id}:{requested_movie}")],
@@ -1507,8 +1507,8 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        await client.send_message(req_channel,f"Search : {search}\nUser : {message.from_user.mention}\nUser ID : {user_id}"),
-        cap = f"<b>⚡Baby, Here is what i found for your query</b>  <code>{search}</code>"
+        #await client.send_message(req_channel,f"Search : {search}\nUser : {message.from_user.mention}\nUser ID : {user_id}"),
+        cap = f"⚡Baby, Here is what i found for your query <code>{search}</code>"
     if imdb and imdb.get('poster'):
         try:
             z = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
