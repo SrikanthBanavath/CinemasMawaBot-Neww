@@ -1507,6 +1507,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
+        await client.send_message(req_channel,f"Search : {search}\nUser : {message.from_user.mention}\nUser ID : {user_id}"),
         cap = f"<b>⚡Baby, Here is what i found for your query</b>  <code>{search}</code>"
     if imdb and imdb.get('poster'):
         try:
