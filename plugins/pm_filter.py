@@ -41,6 +41,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+cm_search_channel = CM_SEARCH_CHANNEL
 req_channel = REQ_CHANNEL
 BUTTONS = {}
 SPELL_CHECK = {}
@@ -1504,7 +1505,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        #await client.send_message(req_channel,f"Search : {search}\nUser : {message.from_user.mention}\nUser ID : {user_id}"),
+        await client.send_message(cm_search_channel,f"Search : {search}\nUser : {message.from_user.mention}\nUser ID : {user_id}"),
         cap = f"⚡Baby, Here is what i found for your query <code>{search}</code>"
     if imdb and imdb.get('poster'):
         try:
