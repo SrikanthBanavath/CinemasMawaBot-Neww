@@ -151,7 +151,7 @@ async def get_ststs(bot, message):
 
 @Client.on_message(filters.command('donate') & filters.incoming)
 async def donate_cmd(bot, message):
-    dn = await message.reply('<i><b>If You like my work Feel Free to Donate any amount through upi🥰</b></i>  \n\n<b>UPI ID :</b> <code>banavathsrikanth26@paytm</code> \n\n<b>If You Can Donate, It Will Be Helpful Or Else Use For Free There Are No Restrictions In Our Bots.\n\nYou Can Donate Any Amount (10, 20, 30 etc..)</b>\n\n<b>Send a screenshot after donation @Srikanth_Official_Bot...❤️</b>')
+    dn = await message.reply('<i><b>If You like my work Feel Free to Donate any amount through upi🥰</b></i>  \n\n<b>UPI ID :</b> <code>banavathsrikanth26@paytm</code> \n\n<b>You Can Donate Any Amount (10, 20, 30 etc..)</b>\n\n<b>Send a screenshot after donation @Srikanth_Official_Bot...❤️</b>')
 
 
 # a function for trespassing into others groups, Inspired by a Vazha
