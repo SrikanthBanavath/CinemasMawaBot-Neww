@@ -149,6 +149,10 @@ async def get_ststs(bot, message):
     free = get_size(free)
     await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
 
+@Client.on_message(filters.command('donate') & filters.incoming)
+async def donate_cmd(bot, message):
+    dn = await message.reply('<i><b>If You like my work Feel Free to Donate any amount through upi🥰</b></i>  \n\n<code>banavathsrikanth26@paytm</code> \n\n<i><b>If You Can Donate, It Will Be Helpful Or Else Use For Free There Are No Restrictions In Our Bots.</b></i>\n\n<b>Send a screenshot after donation @Srikanth_Official_Bot...❤️</b>')
+
 
 # a function for trespassing into others groups, Inspired by a Vazha
 # Not to be used , But Just to showcase his vazhatharam.
