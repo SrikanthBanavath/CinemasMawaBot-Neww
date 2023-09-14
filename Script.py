@@ -1,9 +1,9 @@
 class script(object):
 
     START_TXT = """<b>✨ Hᴇʟʟᴏ {}.
-I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs 😁.
+I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs.
     
-I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ
+I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ 😁.
 
 <a href=https://t.me/CinemasMawa/5>HOW TO USE THIS BOT</a></b>"""
     
