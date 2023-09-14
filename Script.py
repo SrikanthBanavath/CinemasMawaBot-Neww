@@ -1,7 +1,7 @@
 class script(object):
 
     START_TXT = """<b>✨ Hᴇʟʟᴏ {}.
-    I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs 😁.
+I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs 😁.
     
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ
 
