@@ -1,10 +1,11 @@
 class script(object):
 
     START_TXT = """<b>✨ Hᴇʟʟᴏ {}.
+    I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs 😁.
+    
+I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ
 
-Mʏ Nᴀᴍᴇ Is <a href=https://t.me/CinemasMawaBot>CɪɴᴇᴍᴀsMᴀᴡᴀBᴏᴛ</a>.
-
-I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ</b>"""
+<a href=https://t.me/CinemasMawa/5>HOW TO USE THIS BOT</a></b>"""
     
     LZTHMB_TEXT = """Hello {},
 Glad to see you here. It seems that you really love <a href=https://t.me/CinemasMawa >CinemsMawa's</a> work.\n\n<b>Thumbnail extracting</b> feature will be available soon.
