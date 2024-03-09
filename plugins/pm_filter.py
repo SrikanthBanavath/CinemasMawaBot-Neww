@@ -1541,7 +1541,6 @@ async def auto_filter(client, msg, spoll=False):
 
 # Born to make history @LazyDeveloper !
 async def advantage_spell_chok(client, msg):
-if SPELL_CHECK_REPLY is True:
     mv_id = msg.id
     mv_rqst = msg.text
     reqstr1 = msg.from_user.id if msg.from_user else 0
