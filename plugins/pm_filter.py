@@ -1289,7 +1289,7 @@ async def auto_filter(client, msg, spoll=False):
                                                                                                                                         [InlineKeyboardButton(text=f"⚡INVALID..", callback_data=f"notify_user_alrupl:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
                                                                                                                                         [InlineKeyboardButton(text=f"😒No OTT", callback_data=f"notify_user_not_avail:{user_id}:{requested_movie}"),InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")],
                                                                                                                                         ]))
-                #return await advantage_spell_chok(client, msg)
+                return await advantage_spell_chok(client, msg)
 
         else: 
             return
@@ -1593,7 +1593,7 @@ async def advantage_spell_chok(client, msg):
         for k, movie_name in enumerate(movielist)
     ]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spol#{reqstr1}#close_spellcheck')])
-    spell_check_del = await msg.reply_text(text=("<b><I>I Couldn't find anything related to that.\nDid you mean any of these?</I></b>"),reply_markup=InlineKeyboardMarkup(btn),reply_to_message_id=msg.id )
+    #spell_check_del = await msg.reply_text(text=("<b><I>I Couldn't find anything related to that.\nDid you mean any of these?</I></b>"),reply_markup=InlineKeyboardMarkup(btn),reply_to_message_id=msg.id )
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
