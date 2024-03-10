@@ -6,6 +6,11 @@ I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs.
 I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ😁.</b>
 
 <a href=https://t.me/CinemasMawa/5>𝗛𝗢𝗪 𝗧𝗢 𝗨𝗦𝗘 𝗧𝗛𝗜𝗦 𝗕𝗢𝗧</a>"""
+
+    START_TXT_GROUP = """<b>✨ Hᴇʟʟᴏ {}.
+I Cᴀɴ Sʜᴀʀᴇ Mᴏᴠɪᴇs ᴀɴᴅ Sᴇʀɪᴇs.
+    
+I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇ Fᴏʀ Yᴏᴜ Jᴜsᴛ Aᴅᴅ Mᴇ Iɴ Yᴏᴜʀ Gʀᴏᴜᴘ Oʀ Jᴏɪɴ Oᴜʀ Gʀᴏᴜᴘ😁.</b>"""
     
     LZTHMB_TEXT = """Hello {},
 Glad to see you here. It seems that you really love <a href=https://t.me/CinemasMawa >CinemsMawa's</a> work.\n\n<b>Thumbnail extracting</b> feature will be available soon.
