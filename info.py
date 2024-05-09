@@ -14,7 +14,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', 26181458))
 API_HASH = environ.get('API_HASH', "09c734fa0c97721650b5dc0cdbd679d7")
-BOT_TOKEN = environ.get('BOT_TOKEN', "6391546225:AAGweWSpVOZeQN8qDolQu3PFSvUKBOFnCJI")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6565324108:AAEyVFVDVnxETmhduEHuOQz-4JDiAGgyxXI")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -26,21 +26,27 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001637399766 -1001817901075 -1002048552177').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('AUTH_CHANNEL', "-1001907128192")
+auth_channel = environ.get('AUTH_CHANNEL', "")
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
-BOT_USERNAME = environ.get('BOT_USERNAME' ,'CinemasMawaBot' )
+
+BOT_USERNAME = environ.get('BOT_USERNAME' ,'Professor_Search_Bot' )
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://cinemasmawa:cinemasmawa@cluster0.omxcbvk.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://rndjsongs:rndjsongs@cluster0.id7dpmm.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
+#JOIN REQUEST
+JOIN_REQ_CHANNEL = environ.get("JOIN_REQ_CHANNEL", "-1002126672187")
+JOIN_REQ_CHANNEL = int(JOIN_REQ_CHANNEL) if JOIN_REQ_CHANNEL and id_pattern.search(JOIN_REQ_CHANNEL) else False
+JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
+
 
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001910808077"))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001598783514"))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'Srikanth_Official_Bot')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
@@ -65,7 +71,7 @@ LAZY_MODE = bool(environ.get("LAZY_MODE"))
 #Add user id of the user in this field those who you want to be Authentic user for file renaming features
 lazy_renamers = [int(lazrenamers) if id_pattern.search(lazrenamers) else lazrenamers for lazrenamers in environ.get('LAZY_RENAMERS', '').split()]
 LAZY_RENAMERS = (lazy_renamers + ADMINS) if lazy_renamers else []
-REQ_CHANNEL = int(environ.get('REQ_CHANNEL', "-1001883435800"))
+REQ_CHANNEL = int(environ.get('REQ_CHANNEL', "-1001980062268"))
 CM_SEARCH_CHANNEL = int(environ.get('CM_SEARCH_CHANNEL', "-1001910808077"))
 
 #ai
