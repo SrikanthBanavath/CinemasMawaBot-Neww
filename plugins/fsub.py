@@ -56,7 +56,7 @@ async def ForceSub(bot: Client, update: Message, file_id: str = False, mode="che
         return False
 
     # Mian Logic
-    if REQ_CHANNEL and db().isActive():
+    if JOIN_REQ_CHANNEL and db().isActive():
         try:
             # Check if User is Requested to Join Channel
             user = await db().get_user(update.from_user.id)
