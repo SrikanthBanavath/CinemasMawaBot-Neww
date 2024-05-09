@@ -613,10 +613,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             elif settings['botpm']:
-                await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
                 await client.send_cached_media(
@@ -629,9 +629,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖻𝗈𝗍 𝗆𝖺𝗇𝗁 !', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
 
     elif query.data.startswith("checksub"):
         if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
