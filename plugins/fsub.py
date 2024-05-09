@@ -1,14 +1,12 @@
-import asyncio
+import asyncio, logging
 from pyrogram import Client, enums
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-
 from database.join_reqs import JoinReqs
 from info import JOIN_REQ_CHANNEL, AUTH_CHANNEL, JOIN_REQS_DB, ADMINS
 
-from logging import getLogger
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 INVITE_LINK = None
 db = JoinReqs
 
@@ -92,14 +90,14 @@ async def ForceSub(bot: Client, update: Message, file_id: str = False, mode="che
         else:
             return True
     except UserNotParticipant:
-        text="""🤖 Join our update channel below. bot will not give you movie until you join our update channel...\n\n💢 கீழே உள்ள எங்கள் புதுப்பிக்கப்பட்ட சேனலில் சேரவும்.  எங்கள் புதுப்பிப்பு சேனலில் நீங்கள் சேரும் வரை போட் உங்களுக்கு திரைப்படத்தை வழங்காது...\n\n🈯️ ਹੇਠਾਂ ਸਾਡੇ ਅਪਡੇਟ ਕੀਤੇ ਚੈਨਲ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ।  ਬੋਟ ਤੁਹਾਨੂੰ ਉਦੋਂ ਤੱਕ ਮੂਵੀ ਨਹੀਂ ਦੇਵੇਗਾ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਸਾਡੇ ਅਪਡੇਟ ਚੈਨਲ ਤੋਂ ਸ਼ਾਮਲ ਨਹੀਂ ਹੋ ਜਾਂਦੇ...\n\n💤 ചുവടെയുള്ള ഞങ്ങളുടെ അപ്‌ഡേറ്റ് ചെയ്‌ത ചാനലിൽ ചേരുക.  ഞങ്ങളുടെ അപ്‌ഡേറ്റ് ചാനലിൽ നിന്ന് നിങ്ങൾ ചേരുന്നത് വരെ ബോട്ട് നിങ്ങൾക്ക് സിനിമ നൽകില്ല....\n\n♻️ हमारे निचे दिए गये अपडेट  चैनल को जॉइन कर ले। जब तक आप हमारे अपडेट चैनल को जॉइन नहीं करेंगे तब तक बॉट आपको मूवी नहीं देगा.."""
-
+        text="""Click the  𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐭𝐨 𝐣𝐨𝐢𝐧 and then click 𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧 and you will get the File...😁"""
+        
         buttons = [
             [
-                InlineKeyboardButton("⛔  ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ  ⛔", url=invite_link)
+                InlineKeyboardButton("📢 Request To Join Channel 📢", url=invite_link)
             ],
             [
-                InlineKeyboardButton("♻️  ᴛʀʏ ᴀɢᴀɪɴ  ♻️", callback_data=f"{mode}#{file_id}")
+                InlineKeyboardButton("🔄 Try Again", callback_data=f"{mode}#{file_id}")
             ]
         ]
         
