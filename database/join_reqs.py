@@ -2,7 +2,6 @@ import motor.motor_asyncio
 from info import JOIN_REQ_CHANNEL, JOIN_REQS_DB
 
 class JoinReqs:
-
     def __init__(self):
         if JOIN_REQS_DB:
             self.client = motor.motor_asyncio.AsyncIOMotorClient(JOIN_REQS_DB)
