@@ -618,8 +618,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                     return
             else:
-		    button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
-		    keyboard = InlineKeyboardMarkup([[button]])
+                    button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
+                    keyboard = InlineKeyboardMarkup([[button]])
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
