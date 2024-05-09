@@ -628,7 +628,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 			reply_markup=keyboard,
                         protect_content=True if ident == "filep" else False
 		    )
-                    await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
+                    await query.answer('Check PM, I have sent files in pm 🙂', show_alert=False)
         except UserIsBlocked:
             await query.answer('𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖻𝗈𝗍 𝗆𝖺𝗇𝗁 !', show_alert=True)
         except PeerIdInvalid:
