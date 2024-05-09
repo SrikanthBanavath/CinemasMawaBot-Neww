@@ -47,7 +47,7 @@ async def ForceSub(bot: Client, update: Message, file_id: str = False, mode="che
         return fix_
 
     except Exception as err:
-        print(f"Unable to do Force Subscribe to {REQ_CHANNEL}\n\nError: {err}\n\n")
+        print(f"Unable to do Force Subscribe to {JOIN_REQ_CHANNEL}\n\nError: {err}\n\n")
         await update.reply(
             text="Something went Wrong.",
             parse_mode=enums.ParseMode.MARKDOWN,
