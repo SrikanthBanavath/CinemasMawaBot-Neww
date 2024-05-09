@@ -611,28 +611,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
 
         try:
-            if AUTH_CHANNEL and not await is_subscribed(client, query):
-                if clicked == typed:
+            if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
                     await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                     return
-                else:
-                    await query.answer(f"𝖧𝖾𝗒 {query.from_user.first_name}, 𝖳𝗁𝗂𝗌 𝗂𝗌 𝗇𝗈𝗍 𝗒𝗈𝗎𝗋 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 !", show_alert=True)
             elif settings['botpm']:
-                if clicked == typed:
                     await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
                     return
-                else:
-                    await query.answer(f"𝖧𝖾𝗒 {query.from_user.first_name}, 𝖳𝗁𝗂𝗌 𝗂𝗌 𝗇𝗈𝗍 𝗒𝗈𝗎𝗋 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 !", show_alert=True)
             else:
-                if clicked == typed:
+		    button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
+		    keyboard = InlineKeyboardMarkup([[button]])
+		    
                     await client.send_cached_media(
                         chat_id=query.from_user.id,
                         file_id=file_id,
                         caption=f_caption,
-                        protect_content=True if ident == "filep" else False,
-                        reply_markup=InlineKeyboardMarkup( [] ))
-                else:
-                    await query.answer(f"𝖧𝖾𝗒 {query.from_user.first_name}, 𝖳𝗁𝗂𝗌 𝗂𝗌 𝗇𝗈𝗍 𝗒𝗈𝗎𝗋 𝗋𝖾𝗊𝗎𝖾𝗌𝗍 !", show_alert=True)
+			reply_markup=keyboard,
+                        protect_content=True if ident == "filep" else False
+		    )
+
                 await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
         except UserIsBlocked:
             await query.answer('𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖻𝗈𝗍 𝗆𝖺𝗇𝗁 !', show_alert=True)
@@ -642,7 +638,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
 
     elif query.data.startswith("checksub"):
-        if AUTH_CHANNEL and not await is_subscribed(client, query):
+        if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
             await query.answer("𝙸 𝙻𝚒𝚔𝚎 𝚈𝚘𝚞𝚛 𝚂𝚖𝚊𝚛𝚝𝚗𝚎𝚜𝚜, 𝙱𝚞𝚝 𝙳𝚘𝚗'𝚝 𝙱𝚎 𝙾𝚟𝚎𝚛𝚜𝚖𝚊𝚛𝚝 𝙾𝚔𝚊𝚢 😉", show_alert=True)
             return
         ident, file_id = query.data.split("#")
