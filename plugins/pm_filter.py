@@ -613,25 +613,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         try:
             if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-                return
+                    await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+                    return
             elif settings['botpm']:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
-                return
+                    await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
+                    return
             else:
-                await client.send_cached_media(
-                    chat_id=query.from_user.id,
-                    file_id=file_id,
-                    caption=f_caption,
-                    protect_content=True if ident == "filep" else False,
-                    reply_markup=InlineKeyboardMarkup( [] ))
-                await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
+                    button = InlineKeyboardButton('🖥Watch Online / Fast Download⚡️', callback_data=f'generate_stream_link:{file_id}')
+                    keyboard = InlineKeyboardMarkup([[button]])
+                    await client.send_cached_media(
+                        chat_id=query.from_user.id,
+                        file_id=file_id,
+                        caption=f_caption,
+			reply_markup=keyboard,
+                        protect_content=True if ident == "filep" else False
+		    )
+                    await query.answer('𝖢𝗁𝖾𝖼𝗄 𝖯𝖬, 𝖨 𝗁𝖺𝗏𝖾 𝗌𝖾𝗇𝗍 𝖿𝗂𝗅𝖾𝗌 𝗂𝗇 𝖯𝖬', show_alert=True)
         except UserIsBlocked:
             await query.answer('𝖴𝗇𝖻𝗅𝗈𝖼𝗄 𝗍𝗁𝖾 𝖻𝗈𝗍 𝗆𝖺𝗇𝗁 !', show_alert=True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
+            await query.answer(url=f"https://t.me/{BOT_USERNAME}?start={ident}_{file_id}")
 
     elif query.data.startswith("checksub"):
         if (AUTH_CHANNEL or JOIN_REQ_CHANNEL) and not await is_subscribed(client, query):
